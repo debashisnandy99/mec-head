@@ -8,4 +8,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "@popperjs/core/dist/umd/popper.min.js";
-import "./src/assets/css/main.css";
+import "./src/assets/css/main.scss";

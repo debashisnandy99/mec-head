@@ -13,14 +13,15 @@ const setUser = user =>
   window.localStorage.setItem("bearer", JSON.stringify(user))
 
 export const handleLogin = async (uname, password) => {
-  let form_data = new FormData()
-  form_data.append("username", uname)
-  form_data.append("password", password)
+
   console.log(uname)
   try {
-    let data = await axios.post("/admin/login", form_data, {
+    let data = await axios.post("/admin/login", {
+      "username":uname,
+      "password":password
+    }, {
       headers: {
-        "content-type": "multipart/form-data",
+        "content-type": "application/json",
       },
     })
     console.log(data.data)

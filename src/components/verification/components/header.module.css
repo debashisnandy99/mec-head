@@ -1,0 +1,39 @@
+.nav-bg {
+  background-color: #fff;
+}
+
+.bold-text {
+  font-weight: bold;
+  color: black;
+}
+
+.name-box {
+  padding: 10px 14px;
+  background-color: rgb(218, 195, 255);
+  border-radius: 10px;
+  color: rgb(136, 65, 250);
+  margin-right: 15px;
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.dropdown {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
+
+.dropdown:focus{
+    
+  outline: none !important;
+  border:2px solid #FF4519;
+  text-decoration: none;
+  
+  box-shadow: none !important;
+  -webkit-appearance: none;   
+}
+

@@ -1,0 +1,52 @@
+.profile-avater {
+    height: 80px;
+    width: 80px;
+    border-radius: 8px;
+  }
+  
+  .profile-font {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .gender-font {
+    font-size: 0.8rem;
+  }
+  
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .selection-item {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .sub-selection-item {
+    padding: 0.4rem 1.5rem;
+  }
+  .active {
+    background-color: rgb(196, 214, 248);
+    border-radius: 6px;
+  }
+  
+  .active .iconColor [fill] {
+    fill: rgb(0, 86, 247) !important;
+  }
+  .selection-item svg g [fill] {
+    fill: rgb(95, 95, 95);
+  }
+  .active span {
+    color: rgb(0, 86, 247);
+  }
+  
+  @media (min-width: 1400px) {
+    .profile-avater {
+      height: 100px;
+      width: 100px;
+    }
+  }
+  

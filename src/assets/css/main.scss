@@ -1,0 +1,123 @@
+$height: 100vh;
+
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: poppins, sans-serif;
+  background-color: #eef0f8;
+}
+
+.full-height {
+  height: $height;
+}
+
+.full-overlay{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-back {
+  background: #f1f4ff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+.full-container {
+  height: $height;
+}
+
+.py-9 {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+.svg-hover {
+  color: brown;
+}
+
+.form-control.form-control-solid {
+  background-color: #f3f6f9;
+  border-color: #f3f6f9;
+  color: #3f4254;
+  font-size: 1rem;
+  transition: color 0.15s ease, background-color 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.col-form-label {
+  padding-top: calc(0.65rem + 1px);
+  padding-bottom: calc(0.65rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #3f4254;
+}
+
+.form-cu-padding {
+  padding-left: 0.5rem !important;
+}
+
+.input-group.input-group-solid .input-group-prepend,
+.input-group.input-group-solid .input-group-text {
+  background-color: #f3f6f9;
+  border: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+footer {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: white;
+  bottom: 0;
+}
+
+.card {
+  border-width: 0px !important;
+}
+
+.navpointer:hover {
+  cursor: pointer;
+}
+
+.vl {
+  border: 6px solid green;
+  height: 100%;
+}
+
+.hide-input {
+  opacity: 0;
+  height: 0px;
+  width: 0px;
+}
+
+.imgUp {
+  width: 200px;
+  height: 150px;
+  object-fit: fill;
+}
+
+.pointerCursor:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .border-left {
+    border-left: none !important;
+    padding-top: 5rem;
+  }
+}
