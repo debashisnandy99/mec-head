@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faTasks,
   faFile,
+  faIdCard,
   faUserCheck,
   faExclamationCircle,
   faFileUpload,
+  faIdCardAlt
 } from "@fortawesome/free-solid-svg-icons"
 import { url } from "../../../services/details"
 import * as LeftCss from "./left.module.css"
@@ -41,7 +43,7 @@ const LeftPage = ({ changeNavListener, currentNav, user, departmentName }) => {
     } else if (idx == 3) {
       return (
         <FontAwesomeIcon
-          icon={faFile}
+          icon={faIdCard}
           className={`${LeftCss.iconColor} mr-2`}
         />
       )
@@ -49,7 +51,11 @@ const LeftPage = ({ changeNavListener, currentNav, user, departmentName }) => {
   }
 
   return (
-    <Card>
+    <Card
+      style={{
+        height: "78vh",
+      }}
+    >
       <Card.Body>
         <div className="d-flex align-items-center">
           <div className="mr-3">
@@ -61,21 +67,12 @@ const LeftPage = ({ changeNavListener, currentNav, user, departmentName }) => {
           </div>
           <div>
             <p className={`${LeftCss.profileFont} mb-0`}>{user.name}</p>
-          
-            <p className={`${LeftCss.genderFont} mb-0 text-muted`}>
-              MEC Admin
-            </p>
+
+            <p className={`${LeftCss.genderFont} mb-0 text-muted`}>MEC Admin</p>
           </div>
         </div>
-        <div className="py-9">
-         
-          
-        </div>
-        {[
-          "Pending",
-          "Failed",
-          "Verified",
-        ].map(
+        <div className="py-9"></div>
+        {["Pending", "Failed", "Verified", "Card"].map(
           (value, idx) => (
             <div
               key={idx}
@@ -125,11 +122,11 @@ const LeftPage = ({ changeNavListener, currentNav, user, departmentName }) => {
                 } d-flex flex-row align-items-center navpointer`}
               >
                 <FontAwesomeIcon
-                  icon={faFile}
+                  icon={faFileUpload}
                   className={`${LeftCss.iconColor} mr-2`}
                 />
                 <span className={`${LeftCss.genderFont} align-middle`}>
-                  Document
+                  Issue
                 </span>
               </div>
             </div>
@@ -151,11 +148,11 @@ const LeftPage = ({ changeNavListener, currentNav, user, departmentName }) => {
                 } d-flex flex-row align-items-center navpointer`}
               >
                 <FontAwesomeIcon
-                  icon={faFileUpload}
+                  icon={faIdCardAlt}
                   className={`${LeftCss.iconColor} mr-2`}
                 />
                 <span className={`${LeftCss.genderFont} align-middle`}>
-                  Upload
+                  Card
                 </span>
               </div>
             </div>

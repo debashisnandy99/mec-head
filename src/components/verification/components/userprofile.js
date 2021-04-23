@@ -154,7 +154,9 @@ const UserProfile = ({ user, backToHome, verifyUserDocsForm }) => {
                     onClick={() =>
                       setModalShow({
                         show: true,
-                        url: `${url()}/${user.photo}`,
+                        url: imageList
+                          ? `${ipfsUrl()}/ipfs/${ipfs}/${imageList["profile"]}`
+                          : `${url()}/${user.photo}`,
                       })
                     }
                   />
@@ -178,7 +180,11 @@ const UserProfile = ({ user, backToHome, verifyUserDocsForm }) => {
                         onClick={() =>
                           setModalShow({
                             show: true,
-                            url: `${url()}/${user.signature}`,
+                            url: imageList
+                              ? `${ipfsUrl()}/ipfs/${ipfs}/${
+                                  imageList["signature"]
+                                }`
+                              : `${url()}/${user.signature}`,
                           })
                         }
                       />
@@ -320,7 +326,11 @@ const UserProfile = ({ user, backToHome, verifyUserDocsForm }) => {
                                   onClick={() =>
                                     setModalShow({
                                       show: true,
-                                      url: `${url()}/${valueD.file}`,
+                                      url: imageList
+                                        ? `${ipfsUrl()}/ipfs/${ipfs}/${
+                                            imageList[valueD.depId.name]
+                                          }`
+                                        : `${url()}/${valueD.file}`,
                                     })
                                   }
                                 />

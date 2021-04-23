@@ -7,6 +7,8 @@ import {
   Card,
   Pagination,
   Table,
+  Form,
+  Modal,
 } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
@@ -20,7 +22,7 @@ import { url } from "../../services/details"
 import { getUser, isLoggedIn, logout, handleLogin } from "../../services/auth"
 import * as PendingStyles from "./pending.module.css"
 
-class PendingPage extends React.Component {
+class IssuedMecPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -34,6 +36,7 @@ class PendingPage extends React.Component {
       uid: "",
       errorMessage: "",
       user: undefined,
+      modalShow: false,
     }
   }
 
@@ -43,7 +46,7 @@ class PendingPage extends React.Component {
 
   getData = () => {
     axios
-      .get("/admin/pendingVerification?page=" + this.state.active, {
+      .get("/admin/mecGetIssuedCard?page=" + this.state.active, {
         headers: {
           "content-type": "multipart/form-data",
           Authorization: `Bearer ${getUser().token}`,
@@ -78,31 +81,6 @@ class PendingPage extends React.Component {
       })
   }
 
-  verifyUserDocsForm = uid => {
-    axios
-      .post(
-        "/admin/verifyandstore",
-        {
-          uid: uid,
-        },
-        {
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${getUser().token}`,
-          },
-        }
-      )
-      .then(res => {
-        this.getData()
-      })
-      .catch(e => {
-        if (e.response) {
-          if (e.response.data.message === "jwt expired") {
-            logout()
-          }
-        }
-      })
-  }
 
   render() {
     return (
@@ -138,56 +116,38 @@ class PendingPage extends React.Component {
             )}
             <Row>
               <Col>
-                {this.state.user ? (
-                  <UserProfile
-                    verifyUserDocsForm={uid => this.verifyUserDocsForm(uid)}
-                    backToHome={() => {
-                      this.getData()
-                    }}
-                    user={this.state.user}
-                  ></UserProfile>
-                ) : (
-                  <Table responsive className="bg-white pointerCursor">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        {["Name", "Phone Number", "Status"].map(
-                          (value, index) => (
-                            <th key={index}>{value}</th>
-                          )
-                        )}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {this.state.users.map((user, index) => {
-                        console.log(user)
-                        return (
-                          <tr
-                            key={index}
-                            onClick={() => {
-                              this.setState({
-                                user: user,
-                              })
-                            }}
-                          >
-                            <td>{index}</td>
-                            <td>{user.name}</td>
-                            <td>+91 {user.phone}</td>
-                            <td>Pending</td>
-                          </tr>
+                <Table responsive className="bg-white pointerCursor">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      {["Name", "Phone Number", "MEC Card"].map(
+                        (value, index) => (
+                          <th key={index}>{value}</th>
                         )
-                      })}
-                    </tbody>
-                  </Table>
-                )}
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.users.map((user, index) => {
+                      console.log(user)
+                      return (
+                        <tr key={index}>
+                          <td>{index}</td>
+                          <td>{user.name}</td>
+                          <td>+91 {user.phone}</td>
+                          <td>{user.mecCard}</td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </Table>
               </Col>
               {/* {this.state.docs.map(value => (
                 
               ))} */}
             </Row>
-            {this.state.user ? (
-              <></>
-            ) : Math.ceil(this.state.totalNumber / 2) === 1 ? (
+
+            {Math.ceil(this.state.totalNumber / 2) === 1 ? (
               <></>
             ) : (
               <Row>
@@ -203,5 +163,4 @@ class PendingPage extends React.Component {
   }
 }
 
-
-export default PendingPage
+export default IssuedMecPage

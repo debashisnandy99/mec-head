@@ -107,7 +107,7 @@ const HeaderPage = () => {
       </Container>
       <footer
         style={{
-          position: height < 730 ? "relative" : "fixed",
+          position:  "relative",
           left: 0,
           bottom: 0,
         }}

@@ -2,6 +2,8 @@ import * as React from "react"
 import PendingPage from "../pending"
 import FailedPage from "../failed"
 import VerifiedPage from "../verified"
+import PedingIssuePage from "../pendingissuecard"
+import IssuePage from "../issuedcard"
 
 const RightPage = ({ currentNav }) => {
   switch (currentNav) {
@@ -11,6 +13,10 @@ const RightPage = ({ currentNav }) => {
       return <FailedPage />
     case 2:
       return <VerifiedPage />
+    case 3:
+      return <PedingIssuePage />
+    case 4:
+      return <IssuePage />
     default:
       break
   }
