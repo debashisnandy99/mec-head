@@ -43,7 +43,7 @@ export const isLoggedIn = () => {
 }
 
 export const logout = () => {
-  navigate("", {
+  navigate("/", {
     replace: true,
   })
   setUser({})

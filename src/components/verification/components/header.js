@@ -49,7 +49,7 @@ const HeaderPage = () => {
 
   
   return (
-    <div className={`${ProfileCss.backgroundDiv} full-container`}>
+    <div className={`full-container`}>
       <Navbar className={`${ProfileCss.navBg} py-3`} expand="lg">
         <Navbar.Text
           style={{
